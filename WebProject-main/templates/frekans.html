@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Frekans Hesaplama Sayfası</h3>
+<hr> <!-- Çizgi -->
+Bu sayfada URL girilecek bir alan vardır. Sonrasında girilen bu URL’nin metnindeki her kelimenin
+sayfada kaç defa yer aldığı bilgisi hesaplanıp yazdırılmaktadır.
+<hr>
+URL'yi giriniz:
+<hr>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- Butonun görünümü ve tanımlaması yapıldı.Girilecek URL bağlantısı için alan oluşturuldu -->
+<form url="passdata" action="/frekans" method="post">
+
+    <label for ="basic-url">URL:</label>
+    
+<input type="url" url="url" name="text-url">
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">HESAPLA</button>
+</form>
+<!-- Girilen URL'yi kontrol ediyor.Eğer kontrol doğru sağlanırsa bağlantıyı istenen aşamaya sokuyor.-->
+{% if ctrl == True %}
+<ul class="list-group">
+
+{% for key,value in dict_d  %}
+<li class="list-group-item" >{{key}} ( {{value}} ) </li>
+{% endfor %}
+</ul>
+{% else %}
+
+{% endif %}
+
+{% endblock body %}

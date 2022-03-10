@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Site İndexleme ve Sıralama Sayfası</h3>
+<hr> <!-- Çizgi -->
+Bu sayfada URL girilecek alanlar vardır. Sonrasında girilen bu URL'lerin içeriği ile web site kümesindeki her bir web sayfasının 
+içeriklerinin benzerlik skorları ayrı ayrı hesaplanıp yazdırılmaktadır.
+<hr>
+URL'yi giriniz:
+<hr>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form url=passdata action="/indexleme" method="post">
+
+<label for="basic-url">İlk URL'yi giriniz:</label>
+<input type="url" url="url" name="url1">
+ <hr>  
+<label for="basic-url">Alt URL'leri giriniz:</label>
+<input type="url" url="url" name="url2">
+<hr>
+<button class="btn btn-primary my-2 my-sm-0" type="submit">HESAPLA</button>
+</form>
+<!-- Girilen URL'yi kontrol ediyor.Eğer kontrol doğru sağlanırsa bağlantıyı istenen aşamaya sokuyor.-->
+{% if ctrl == True %}
+<ul class="list-group">
+{% for key,value in dict_d  %}
+<li class="list-group-item" >{{key}} ( {{value}} ) </li>
+{% endfor %}
+</ul>
+
+{% else %}
+
+{% endif %}
+
+{% endblock body %}

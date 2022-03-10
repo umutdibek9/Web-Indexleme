@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Anahtar Kelime Çıkarma Sayfası</h3>
+<hr> <!-- Çizgi -->
+Bu sayfada URL girilecek alanlar vardır. Sonrasında girilen bu URL'lerin metinlerindeki her kelimenin
+sayfada kaç defa yer aldığının karşılaştırılması ve anahtar kelimelerinin bilgisi hesaplanıp yazdırılmaktadır.
+<hr>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form url=passdata action="/anahtar" method="post">
+
+<label for="basic-url">İlk URL'yi giriniz:</label>
+<input type="url" url="url" name="url1">
+ <hr>  
+<label for="basic-url">İkinci URL'yi giriniz:</label>
+<input type="url" url="url" name="url2">
+<hr>
+<button class="btn btn-primary my-2 my-sm-0" type="submit">HESAPLA</button>
+
+</form>
+
+{% if ctrl == True %}
+
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <h3>İlk URL için anahtar kelimeler</h3>
+      <ul class="list-group" style="text-align;">
+
+      {% for key,value in dict1  %}
+       
+      <li class="list-group-item" >{{key}} ( {{value}} ) </li>
+
+      {% endfor %}
+
+      </ul>
+    </div>
+    <div class="col">
+    <h3>İkinci URL için anahtar kelimeler</h3>
+     <ul class="list-group" style="text-align;">
+
+      {% for key,value in dict2  %}
+      <li class="list-group-item" >{{key}} ( {{value}} ) </li>
+        
+      {% endfor %}
+
+      </ul>
+    </div>
+  </div>
+
+{% else %}
+
+{% endif %}
+
+{% endblock  body %}
+
+{% block title %}
+
+{% endblock title %}
